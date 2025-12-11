@@ -28,4 +28,15 @@ print("Total part 1: ", total_1)
 
 # Part 2
 
+for range_start, range_end in tqdm(ranges, desc="Processing all ranges, Part 2"):
+    for number in range(range_start, range_end + 1):
+        str_num = str(number)
+        len_nb = len(str_num)
+        for taille_double in range(len_nb//2, 0, -1):
+            parts = [str_num[i:i+taille_double] for i in range(0, len_nb, taille_double)]
+            set_parts = set(parts)
+            if len(set_parts) == 1 :
+                total_2 += number
+                break
+
 print("Total part 2: ", total_2)
